@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+@gen-font-family: 'Roboto', sans-serif; // main font
+@theme-color: #0d99b7;
+@errors: #f95446;
+@grey-background: #f6f7f8;
+@borders-dividers: #dadada;
+@warnings: #fed455;
+@success: #a0c263;
+@titles: #000;
+@primary-text: rgba(0, 0, 0, 0.9);
+@secondary-text: rgba(0, 0, 0, 0.6);
+@third-text: rgba(0, 0, 0, 0.4);
+@white: #fff;
+
+div#dp-popup.dp-popup {
+	position: absolute;
+	top: 440px !important;
+	left: 610px !important;
+	padding: 17px;
+	background: @white;
+	border: 1px solid @borders-dividers;
+	border-radius: 4px;
+	text-align: center;
+}
+div#dp-popup .dp-nav-prev, div#dp-popup .dp-nav-next {
+	width: 10px;
+	height: 16px;
+	position: relative;
+	top: -17px;
+}
+div#dp-popup .dp-nav-prev {
+	float: left;
+	background: url(../SVG/arrow_left_24px.svg) center center no-repeat;
+	a.dp-nav-prev-month {color: transparent;}
+}
+div#dp-popup .dp-nav-next {
+	float: right;
+	background: url(../SVG/arrow_right_24px.svg) center center no-repeat;
+	a.dp-nav-next-month {color: transparent;}
+}
+.dp-nav-prev-year, .dp-nav-next-year {display: none;}
+
+div#dp-popup.dp-popup h2 {
+	font-size: 14px !important;
+}
+
+.dp-calendar {
+	margin-top: -20px;
+	table.jCalendar {
+		border-spacing: 20px 10px;
+		border-collapse: separate;
+		td {
+			padding: 7px;
+			cursor: default;
+		}
+	}
+}
+
+table.jCalendar {
+
+	.other-month.weekday.disabled,
+	.other-month.weekend.disabled,
+	.other-month.weekday.disabled.dp-hover,
+	.other-month.weekend.disabled.dp-hover {
+		color: @third-text;
+		cursor: default;
+		background: @white;
+	}
+
+	.current-month.weekday,
+	.current-month.weekend,
+	.other-month.weekday, 
+	.other-month.weekend {
+		color: @primary-text;
+		cursor: pointer;
+		&.dp-hover, &.today, &.selected {
+			background: @theme-color;
+			border-radius: 50%;
+			color: @white;
+		}
+	}
+
+	.other-month.weekday, 
+	.other-month.weekend {
+		color: @secondary-text;
+	}
+
+
+}

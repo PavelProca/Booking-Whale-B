@@ -1,0 +1,576 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+@gen-font-family: 'Roboto', sans-serif; // main font
+@theme-color: #0d99b7;
+@errors: #f95446;
+@grey-background: #f6f7f8;
+@borders-dividers: #dadada;
+@warnings: #fed455;
+@success: #a0c263;
+@titles: #000;
+@primary-text: rgba(0, 0, 0, 0.9);
+@secondary-text: rgba(0, 0, 0, 0.6);
+@third-text: rgba(0, 0, 0, 0.4);
+@white: #fff;
+
+* {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	box-sizing: border-box;
+	font-family:  @gen-font-family;
+	border-radius: 0;
+}
+body {
+	color: @primary-text;
+	font-size: 14px;
+	font-weight: 400;
+	background: linear-gradient(to right, @white 70%, @grey-background 30%);
+}
+h1, h2, h3, h4, h5, h6 {
+	color: @titles;
+	font-weight: 400;
+}
+h2 {font-size: 20px !important;}
+a, a:hover, a:active, a:visited {
+	color: @theme-color;
+}
+input {font-size: inherit;}
+label {color: @third-text;}
+
+.align-left {float: left;}
+.align-right {float: right;}
+.clear-fix {
+	width: 0;
+	height: 0;
+	padding: 0;
+	margin: 0;
+	clear: both;
+}
+path, g[id^="arrow_right"] {fill: @third-text;}
+.onpage {
+	& path, & .stepsArrow {fill: @theme-color;}
+	& + .item-name {
+		padding-bottom: 8px;
+		color: @theme-color;
+	}
+	& + .item-name.current-item {
+		border-bottom: 2px solid @theme-color;
+	}
+}
+ul, ol {list-style: none;}
+// =================== CONTENT POSITION ===================
+.gwrap { // global wrapper
+	max-width: 1300px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	flex-direction: row-reverse;
+}
+.lside { // left side of the page
+	width: 67%;
+	max-width: 860px;
+	background: @white;
+	.col-cnt {margin: 0 50px;}
+}
+.rside { // right side of the page
+	width: 34%;
+	max-width: 440px;
+	background: @grey-background;
+	.col-cnt {
+		margin: 0 50px 0 30px;
+		.marginator {
+			width: 100%;
+			height: 50px;
+		}
+		.row {margin-bottom: 15px;}
+	}
+}
+.lside, .rside {
+	min-height: 100vh;
+	float: right;
+}
+.col-cnt {padding-top: 40px;}
+// =================== RIGHT SIDE CONTENT ===================
+.totals h2:first-child {margin-top: 5px;}
+.txtl {float: left;}
+.txtr {float: right;}
+
+.help {
+	h2 {margin-bottom: 10px;}
+}
+.arrow {
+	display: none;
+}
+// =================== HEADER ===================
+
+.header.header-hidden {display: none;}
+
+.header {
+	.align-right {line-height: 47px;}
+	.log-wrap {
+		position: relative;
+		top: -4px;
+	}
+	a #Group #Shape:first-child {fill: @theme-color;}
+}
+
+// =================== STEPS ===================
+.smenu {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+	padding: 40px 0 40px 0;
+	list-style: none;
+}
+
+.smenu-item {
+	text-align: center;
+	color: @third-text;
+	img {width: 24px; height: 24px;}
+	&.separator {
+		img {width: 10px;}
+	}
+	.item-name {margin: 7px 0;}
+}
+
+// =================== ERROR AREA ===================
+.area {
+	display: none;
+	padding: 14px;
+	margin-bottom: 30px;
+	border: 1px solid @errors;
+	border-radius: 5px;
+	overflow: auto;
+	background: #fef9f9;
+	div:first-child {
+		float: left;
+		margin-right: 15px;
+		path {fill: @errors;}
+	}
+	div:last-child {
+		padding-top: 2px;
+	}
+}
+.area.error {display: block !important;}
+
+// =================== LOCAL ERROR USED IN THE FORM ===================
+.loc-error div {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	white-space: nowrap;
+}
+.loc-error {
+	position: absolute;
+	display: none;
+	float: right;
+	right: 0;
+	bottom: -25px;
+	margin: 0;
+	padding: 0;
+	z-index: 1;
+	& div:first-child {
+		position: absolute;
+		top: -25px;
+		right: 16px;
+		svg {
+			width: 16px;
+			height: 16px;
+			path {fill: @errors;}
+		}
+	}
+	& div:last-child {
+		padding: 8px 12px;
+		box-sizing: border-box;
+		border-radius: 3px;
+		background: @errors;
+		color: @white;
+		&:after {
+			display: inline-block;
+			position: relative;
+			content: '';
+			width: 0;
+  			height: 0;
+  			top: -21px;
+  			left: -7px;
+  			border-left: 4px solid transparent;
+  			border-right: 4px solid transparent;
+  			border-bottom: 4px solid @errors;
+		}
+	}
+}
+.loc-error.active {display: block;}
+
+// ====================================== LOCATION PAGE STYLES ======================================
+form, #more-info {
+	div {
+		position: relative;
+		padding-top: 18px;
+	}
+	input, textarea, .dropdown.mobile-drop {
+		width: 100%;
+		height: 10px;
+		padding: 20px 0;
+		border: none;
+		border-bottom: 1px solid @borders-dividers;
+		background: transparent;
+		box-sizing: content-box;	
+		&:focus {
+			outline: none;
+			border-bottom-color: @theme-color;
+		}
+		&:focus + label[for^='loc-'], &:valid + label[for^='loc-']{
+			top: 18%;
+			font-size: 12px;
+			color: @theme-color;
+		}
+	}
+	label[for^='loc-'] {
+		position: absolute;
+		top: 52%;
+		left: 0;
+		cursor: text;
+		transition: .2s ease-out;
+	}
+	.req {
+		display: inline-block;
+		color: @errors;
+	}
+	.dropdown.mobile-drop {
+		height: 50px;
+		padding: 0;
+	}
+	.marginator {width: 4%; height: 10px;}
+	.bhalf {width: 62%;}
+	.shalf {width: 34%;}
+	textarea {
+		height: auto;
+		box-sizing: border-box;
+		padding-top: 0;
+		margin-top: 20px;
+		resize: none;
+	}
+}
+
+// =================== DROPDOWN ===================
+.mobile-drop {display: none;}
+.dropdown {
+	position: relative;
+	padding: 0;
+	margin: 0;
+	label {
+		display: block;
+		height: 50px;
+		line-height: 50px;
+		color: @primary-text;
+		cursor: pointer;
+		border-bottom: 1px solid @borders-dividers;
+	}
+	ul {
+		list-style: none;
+		position: absolute;
+		width: 100%;
+		z-index: 1;
+		li {
+			padding: 0px 16px;
+			background: @white;
+			color: @primary-text;
+			height: 0px;
+			overflow: hidden;
+			cursor: pointer;
+			transition: height 0.1s linear 0s;
+			&:hover, &.selected {
+				background: @grey-background;
+				color: @primary-text;
+				border-left: 2px solid @theme-color !important;
+			}
+		}
+	}
+	&.open ul li {
+		padding: 8px 16px;
+		height: 34px;
+		border: 1px solid @grey-background;
+		border-top: none;
+	}
+	svg {
+		position: absolute;
+		top: 25px;
+		right: 0;
+		cursor: pointer;
+	}
+}
+// .dropdown.chosen label{border-bottom: 1px solid @theme-color;}
+
+// =================== BUTTONS AREA ===================
+
+.buttons {
+	padding-top: 40px;
+	margin-bottom: 40px;
+	text-align: center;
+	.align-right {width: 40%;}
+	.align-left {line-height: 50px;}
+	h2 {margin-bottom: 20px;}
+	.warn {margin-top: 10px;}
+}
+
+.btn {
+	width: 100%;
+	min-height: 50px;
+    border-radius: 50px;
+    background-color: @theme-color;
+    border: 1px solid @theme-color;
+    cursor: pointer;
+    outline: none;
+    color: @white;
+    font-size: 21px;
+    path {fill: @white;}
+    svg {
+    	position: relative;
+    	top: 3px;
+    }
+}
+
+a.back {
+	#Shape:first-child {
+		fill: @theme-color;
+	}
+}
+
+.txtr.hidden, .arrow {display: none;}
+.hidden {display: block;}
+
+// ====================================== DATE&TIME PAGE STYLES ======================================
+// TOP PART
+.chose-day {
+	display: flex;
+	justify-content: space-between;
+	padding-top: 20px;
+	padding-bottom: 40px;
+}
+.chose-day .day-wrap {
+	display: block;
+	width: 100%;
+	max-width: 240px;
+	margin: 0 20px;
+	&:first-child, &:last-child {
+		margin: 0;
+	}
+}
+.chose-day .day {
+	display: block;
+	position: relative;
+	padding: 37px 0;
+	text-align: center;
+	border: 1px solid @borders-dividers;
+	border-radius: 5px;
+	cursor: pointer;
+	& h2 {text-transform: uppercase;}
+}
+.day-wrap input[type="radio"], .adds input[type="checkbox"] {display: none;}
+.day-wrap input[type="radio"] + label:after, .adds input[type="checkbox"] + label:after {
+	content: " ";
+	display: block;
+	height: 20px;
+	width: 20px;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	border: 2px solid @borders-dividers;
+	border-radius: 50%;
+	background: transparent;
+}
+.day-wrap input[type="radio"]:checked + label, .adds input[type="checkbox"]:checked + label{
+	background: @theme-color;
+	border-color: @theme-color;
+	color: @white;
+	& h2 {color: @white;}
+	& h2 path[id="Shape"] {fill: @white;}
+}
+.day-wrap input[type="radio"]:checked + label:after, .adds input[type="checkbox"]:checked + label:after {
+	border-color: @white;
+	height: 20px;
+	width: 20px;
+}
+.adds {position: relative;}
+// BOTTOM PART
+.chose-time {
+	padding: 10px 0 0 0;
+	overflow: auto;
+}
+.time-wrap {
+	display: block;
+	float: left;
+	text-align: center;
+	width: 11%;
+	min-width: 85px;
+	margin-top: 10px;
+	margin-right: 1.3%;
+}
+.time-wrap label {
+	display: block;
+	width: 100%;
+	height: 40px;
+	padding: 14px 10px;
+	border: 1px solid @borders-dividers;
+	border-radius: 3px;
+	line-height: 12px;
+	cursor: pointer;
+	color: @primary-text;
+}
+.time-wrap input[type="radio"] {display: none;}
+.time-wrap input[type="radio"] + label:hover {border-color: @theme-color;}
+.time-wrap input[type="radio"]:checked + label {
+	color: @white;
+	background: @theme-color;
+	border-color: @theme-color;
+	& h4 {color: @white;}
+}
+
+// ====================================== VEHICLE PAGE STYLES ======================================
+.veh-type {
+	padding-bottom: 20px;
+	p {
+		padding-top: 20px;
+		color: @primary-text;
+	}
+}
+
+.day-wrap {
+	.veh-bg {
+		display: inline-block;
+		height: 40px;
+		width: 100%;
+	}
+	&:first-child .veh-bg {background: url(vehicles/sedan-default.png) center no-repeat;}
+	&:nth-child(2) .veh-bg {background: url(vehicles/suv-default.png) center no-repeat;}
+	&:last-child .veh-bg {background: url(vehicles/truck-default.png) center no-repeat;}
+	&:first-child input[type="radio"]:checked + label {.veh-bg {background: url(vehicles/sedan-selected.png) center no-repeat;} }
+	&:nth-child(2) input[type="radio"]:checked + label {.veh-bg {background: url(vehicles/suv-selected.png) center no-repeat;} }
+	&:last-child input[type="radio"]:checked + label {.veh-bg {background: url(vehicles/truck-selected.png) center no-repeat;} }
+	& input[type="radio"]:checked + label p {
+		color: @white;
+	}
+}
+
+#more-info {
+	display: flex;
+	justify-content: space-between;
+	div {
+		width: 30%;
+	}
+}
+.info {
+	position: relative;
+	margin-bottom: 40px;
+}
+.info.hidden {
+	display: none;
+}
+.close {
+	display: none;
+	position: absolute;
+	top: 0;
+	right: 0;
+	color: red;
+	cursor: pointer;
+}
+.qty-wrapper {
+	margin-top: 40px;
+}
+.qty {
+	margin-left: 10px;
+}
+// =================== MOBILE STYLES ===================
+@media only screen and (max-width: 780px) {
+	body {background: @white;}
+
+	.gwrap, .header.header-hidden, .rside .col-cnt .txtr.hidden, form .dropdown.mobile-drop {display: block;}
+	.arrow {display: inline-block;}
+
+	.header, form .marginator, .smenu-item .item-name, 
+	form .dropdown, .hidden {display: none;}
+
+	.header.header-hidden {
+		background: @white;
+		padding: 13px 20px 0 20px;
+		img {height: 25px;}
+	}
+	.lside, .rside {
+		max-width: 100%;
+		width: 100%;
+		height: auto;
+		float: none;
+		.col-cnt {margin: 0 20px;}
+	}
+	.lside {
+		min-height: 100vh;
+		.col-cnt {padding-top: 0;}
+	}
+	.rside {
+			min-height: auto;
+			border-top: 1px solid @borders-dividers;
+			border-bottom: 1px solid @borders-dividers;
+		.col-cnt {
+			padding: 10px 0;
+		}
+	}
+	.totals {
+		div:first-child {overflow: auto;}
+		h2:first-child {
+			position: relative;
+			color: @theme-color;
+			padding-right: 26px;
+			cursor: pointer;
+			font-size: 14px;
+			#Shape:first-child {fill: @theme-color;}
+		}
+	}
+	.smenu {
+		padding: 20px 0 17px 0;
+		justify-content: space-between;
+	}
+	form {
+		.bhalf, .shalf {
+			float: none;
+			width: 100%;
+		}
+	}
+	.buttons {
+		padding-top: 35px;
+		.align-left, .align-right {
+			float: none;
+			width: 100%;
+			text-align: center;
+		}
+	}
+	// DATE & TIME STYLES
+	.chose-day {display: block;}
+	.chose-day .day-wrap {
+		width: 100%;
+		max-width: 100%;
+		margin: 10px auto !important;
+	}
+	.chose-day .day {padding: 20px 0;}
+	.chose-time {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+	.time-wrap {
+		display: block;
+		float: none;
+		width: 30%;
+		margin: 10px 0 0 0;
+	}
+	// VEHICLE PAGE STYLES
+	#more-info {
+		display: block;
+		div {width: 100%;}
+	}
+}
+.day.package-label {
+	background: #fff !important;
+	color: rgba(0,0,0,.9) !important;
+	padding: 40px 20px 0 20px !important;
+}
