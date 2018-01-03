@@ -309,7 +309,14 @@ form, #more-info {
 	margin-bottom: 40px;
 	text-align: center;
 	.align-right {width: 40%;}
-	.align-left {line-height: 50px;}
+	.align-left {
+		line-height: 50px;
+		width: 35%;
+		.btn {
+			background: #A1C168;
+			border-color: #A1C168;
+		}
+	}
 	h2 {margin-bottom: 20px;}
 	.warn {margin-top: 10px;}
 }
@@ -381,7 +388,6 @@ a.back {
 	background: transparent;
 }
 .day-wrap input[type="radio"]:checked + label, .adds input[type="checkbox"]:checked + label{
-	background: @theme-color;
 	border-color: @theme-color;
 	color: @white;
 	& h2 {color: @white;}
@@ -445,14 +451,7 @@ a.back {
 	&:first-child .veh-bg {background: url(vehicles/sedan-default.png) center no-repeat;}
 	&:nth-child(2) .veh-bg {background: url(vehicles/suv-default.png) center no-repeat;}
 	&:last-child .veh-bg {background: url(vehicles/truck-default.png) center no-repeat;}
-	&:first-child input[type="radio"]:checked + label {.veh-bg {background: url(vehicles/sedan-selected.png) center no-repeat;} }
-	&:nth-child(2) input[type="radio"]:checked + label {.veh-bg {background: url(vehicles/suv-selected.png) center no-repeat;} }
-	&:last-child input[type="radio"]:checked + label {.veh-bg {background: url(vehicles/truck-selected.png) center no-repeat;} }
-	& input[type="radio"]:checked + label p {
-		color: @white;
-	}
 }
-
 #more-info {
 	display: flex;
 	justify-content: space-between;
@@ -467,6 +466,9 @@ a.back {
 .info.hidden {
 	display: none;
 }
+.qty {
+	margin-top: 20px;
+}
 .close {
 	display: none;
 	position: absolute;
@@ -475,11 +477,10 @@ a.back {
 	color: red;
 	cursor: pointer;
 }
-.qty-wrapper {
-	margin-top: 40px;
-}
-.qty {
-	margin-left: 10px;
+.add-content div:first-child {
+    width: 100%;
+    max-width: 400px;
+    margin-left: 0;
 }
 // =================== MOBILE STYLES ===================
 @media only screen and (max-width: 780px) {
