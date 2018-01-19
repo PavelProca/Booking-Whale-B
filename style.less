@@ -203,10 +203,13 @@ ul, ol {list-style: none;}
 .loc-error.active {display: block;}
 
 // ====================================== LOCATION PAGE STYLES ======================================
+.more-info-wrapper {
+	padding-top: 40px;
+}
 form, #more-info {
 	div {
 		position: relative;
-		padding-top: 18px;
+		padding-top: 10px;
 	}
 	input, textarea, .dropdown.mobile-drop {
 		width: 100%;
@@ -398,7 +401,9 @@ a.back {
 	height: 20px;
 	width: 20px;
 }
-.adds {position: relative;}
+.adds {
+	position: absolute;
+}
 // BOTTOM PART
 .chose-time {
 	padding: 10px 0 0 0;
@@ -466,21 +471,30 @@ a.back {
 .info.hidden {
 	display: none;
 }
+.vehicles-amount {
+	margin-top: 30px;
+}
 .qty {
-	margin-top: 20px;
+	display: inline-block;
+	margin-left: 10px;
 }
 .close {
 	display: none;
 	position: absolute;
-	top: 0;
-	right: 0;
+	top: 5px;
+	left: 150px;
 	color: red;
 	cursor: pointer;
 }
 .add-content div:first-child {
     width: 100%;
     max-width: 400px;
-    margin-left: 0;
+    margin-left: 35px;
+}
+.vehicle-type-number.active {
+	display: inline-block;
+	color: @white;
+	background: @theme-color;
 }
 // =================== MOBILE STYLES ===================
 @media only screen and (max-width: 780px) {

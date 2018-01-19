@@ -263,7 +263,7 @@
 					<!-- =============== CLONE BLOCK =============== -->
 					<div class="info hidden" id="clone">
 						<!-- ====== VEHICLE TYPE ======-->
-						<h2>What vehicle will we clean?</h2>
+						<h2 class="vehicle-type-number">Vehicle Type</h2>
 						<div class="chose-day veh-type">
 							<div class="day-wrap">
 								<input type="radio" name="day-radio" id="" class="type-block">
@@ -316,11 +316,6 @@
 
 										<div>
 											<span class="details" onclick="details(1)">Details...</span>
-											<ul>
-												<li>Body washed &#38; waxed</li>
-												<li>Exterior windows, mirrors, &#38; windshield wipers cleaned</li>
-												<li>Tires and rims washed and dressed</li>
-											</ul>
 										</div>
 									</div>
 									</label>
@@ -349,11 +344,6 @@
 
 										<div>
 											<span class="details" onclick="details(2)">Details...</span>
-											<ul>
-												<li>All of Bio-Exterior Package</li>
-												<li>Trunk vacuum and wipe</li>
-												<li>Interior wiping, vacuuming and sanitization</li>
-											</ul>
 										</div>
 									</div>
 									</label>
@@ -382,11 +372,6 @@
 
 										<div>
 											<span class="details" onclick="details(3)">Details...</span>
-											<ul>
-												<li>All of Bio-Complete Package</li>
-												<li>Organic “Carnauba” wax</li>
-												<li>Leather seats conditioning</li>
-											</ul>
 										</div>
 									</div>
 									</label>
@@ -474,7 +459,8 @@
 						</div>
 						<!-- ================================ END OF ADDONS ================================ -->
 						<!-- ====== MORE INFO ======-->
-						<div>
+						<div class="more-info-wrapper">
+							<h2>Vehicle information</h2>
 							<form id="more-info">
 								<div>
 									<input type="text" required>
@@ -489,22 +475,22 @@
 									<label for="loc-make">Color</label>
 								</div>
 							</form>
-							<div class="qty">
-								How many vehicles you have for this service?
-								<select>
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-								</select>
-							</div>
 						</div>
 						<div class="close">X Remove</div>
+						<div class="vehicles-amount">
+							How many vehicles you have for this package?
+							<select class="qty">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+							</select>
+						</div>
 					</div>
 					<!-- =============== END OF CLONE BLOCK =============== -->
 					<div class="info">
 						<!-- ====== VEHICLE TYPE ======-->
-						<h2>What vehicle will we clean?</h2>
+						<h2 class="vehicle-type-number">Vehicle Type</h2>
 						<div class="chose-day veh-type">
 							<div class="day-wrap">
 								<input type="radio" name="day-radio" id="mradio-1" class="type-block" checked>
@@ -532,7 +518,6 @@
 						<!-- ================================ PACKAGES ================================ -->
 						<div class="service-wrap">
 							<h2>Packages</h2>
-							<p>Which wash is the best for your vehicle?</p>
 							<div class="chose-day car-wash">
 								<div class="day-wrap wash-item">
 									<input type="radio" name="day-radio1" id="dradio-1" checked class="package-input">
@@ -558,11 +543,6 @@
 
 										<div>
 											<span class="details" onclick="details(1)">Details...</span>
-											<ul>
-												<li>Body washed &#38; waxed</li>
-												<li>Exterior windows, mirrors, &#38; windshield wipers cleaned</li>
-												<li>Tires and rims washed and dressed</li>
-											</ul>
 										</div>
 									</div>
 									</label>
@@ -591,11 +571,6 @@
 
 										<div>
 											<span class="details" onclick="details(2)">Details...</span>
-											<ul>
-												<li>All of Bio-Exterior Package</li>
-												<li>Trunk vacuum and wipe</li>
-												<li>Interior wiping, vacuuming and sanitization</li>
-											</ul>
 										</div>
 									</div>
 									</label>
@@ -624,11 +599,6 @@
 
 										<div>
 											<span class="details" onclick="details(3)">Details...</span>
-											<ul>
-												<li>All of Bio-Complete Package</li>
-												<li>Organic “Carnauba” wax</li>
-												<li>Leather seats conditioning</li>
-											</ul>
 										</div>
 									</div>
 									</label>
@@ -716,7 +686,8 @@
 						</div>
 						<!-- ================================ END OF ADDONS ================================ -->
 						<!-- ====== MORE INFO ======-->
-						<div>
+						<div class="more-info-wrapper">
+							<h2>Vehicle information</h2>
 							<form id="more-info">
 								<div>
 									<input type="text" required id="loc-make">
@@ -731,17 +702,17 @@
 									<label for="loc-make">Color</label>
 								</div>
 							</form>
-							<div class="qty">
-								How many vehicles you have for this service?
-								<select>
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-								</select>
-							</div>
 						</div>
 						<div class="close">X Remove</div>
+						<div class="vehicles-amount">
+							How many vehicles you have for this package?
+							<select class="qty">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+							</select>
+						</div>
 					</div>
 				</div>
 				<div class="buttons">
@@ -749,7 +720,7 @@
 						<button class="btn" type="submit" form="info">Next</button>
 					</div>
 					<div class="align-left">
-						<button onClick="addBlock()" class="btn">Add Another Vehicle</button>
+						<button onClick="addBlock()" class="btn">+ Add Another Vehicle</button>
 					</div>
 					<div class="clear-fix"></div>
 				</div>
@@ -824,6 +795,14 @@
 			closeButtons = document.getElementsByClassName("close");
 			if (blocks.length <= 2) {
 				closeButtons[1].style.display = "none";
+				vehName[1].innerHTML = "Vehicle Type";
+				vehName[1].classList.remove("active");
+			}
+			else if (blocks.length > 2) {
+				for (var i = 0; i < vehName.length; i++) {
+					vehName[i].innerHTML = "Vehicle Type #" + i;
+					vehName[i].classList.add("active");
+				}
 			}
 		});
 		// active state for addons 
@@ -831,6 +810,12 @@
 			var addOn = event.target.parentElement.parentElement;
 			addOn.classList.toggle("active");
 		});
+		debugger;
+		var vehName = document.getElementsByClassName("vehicle-type-number");
+		for (var i = 0; i < vehName.length; i++) {
+			vehName[i].innerHTML = "Vehicle Type #" + i;
+			vehName[i].classList.add("active");
+		}
 	}
 	// active state for addons 
 	$(".add-input").click(function(event) {
